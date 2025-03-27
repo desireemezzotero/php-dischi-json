@@ -30,16 +30,11 @@ if( $_POST['title'] && $_POST['artist'] && $_POST['img'] && $_POST['year'] && $_
   
     //riconverto la struttura in json
     $json_new = json_encode($json);
-  
+
     //sovrascrizzione del file json
-    $result = file_put_contents('./disc.json', $json_new);
-if ($result === false) {
-  echo "Errore nella scrittura del file disc.json. Dettagli: " . error_get_last()['message'];
-} else {
-    echo "File scritto correttamente.";
-}
-   
-   // header('Location: ./index.php');
+    file_put_contents('./disc.json', $json_new);
+
+   header('Location: ./index.php');
 } else {
   header('Location: ./index.php');
 }
